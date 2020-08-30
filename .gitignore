@@ -1,0 +1,9 @@
+.vs/
+_ReSharper.Caches/
+.vscode/
+*.csproj
+*.sln
+*.DotSettings.user
+Library/
+obj/
+Logs/
