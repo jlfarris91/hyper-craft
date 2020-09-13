@@ -5,6 +5,7 @@ namespace CamerasLib
     public class CameraBlender : MonoBehaviour
     {
         public bool Smooth = true;
+        public bool FixedTime = false;
         public Camera Target;
 
         [Header("Position")]
@@ -69,7 +70,27 @@ namespace CamerasLib
             this.camera = this.GetComponent<Camera>();
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
+        {
+            if (FixedTime)
+            {
+                return;
+            }
+
+            UpdateCamera();
+        }
+
+        private void Update()
+        {
+            if (!FixedTime)
+            {
+                return;
+            }
+
+            UpdateCamera();
+        }
+
+        private void UpdateCamera()
         {
             if (this.Smooth)
             {
